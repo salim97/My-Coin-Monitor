@@ -12,7 +12,7 @@ ApplicationWindow {
 
 
     property string myKey: ""
-    Settings { // TODO c++ better
+    Settings { // TODO C++ better
             id: settings
             property string apiKEY: "742758491e8a20de3544d78c4120b5313f41cfc1ca45fb5ce7521d512c3d07ec"
         }
