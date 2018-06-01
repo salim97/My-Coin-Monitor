@@ -1,4 +1,5 @@
-QT += quick
+QT += core gui qml quick quickcontrols2
+
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -28,5 +29,9 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-OTHER_FILES += main.qml\
-            WebAPI.js
+OTHER_FILES +=  WebAPI.js
+
+DISTFILES +=    main.qml\
+                CustomRect.qml\
+                Config.qml
+

@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>WebAPI.js</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>CustomRect.qml</file>
+        <file>Config.qml</file>
     </qresource>
 </RCC>
