@@ -8,14 +8,14 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    title: qsTr("MiningPoolHub")
 
 
     property string myKey: ""
     Settings { // TODO C++ better
-            id: settings
-            property string apiKEY: "742758491e8a20de3544d78c4120b5313f41cfc1ca45fb5ce7521d512c3d07ec"
-        }
+        id: settings
+        property string apiKEY: "742758491e8a20de3544d78c4120b5313f41cfc1ca45fb5ce7521d512c3d07ec"
+    }
     Component.onCompleted: {
         myKey = settings.apiKEY
     }
@@ -41,18 +41,25 @@ ApplicationWindow {
             id:zecId
             myAPI: "http://zcash.miningpoolhub.com/index.php?page=api&action=getdashboarddata&api_key="+myKey
             myCoin: "ZEC"
+            myIcon: "qrc:///icons/zcash.png"
+            myIconBorder:"qrc:///icons/zcash_border.png"
+
 
         }
         CustomRect {
             id:xmrId
             myAPI: "http://monero.miningpoolhub.com/index.php?page=api&action=getdashboarddata&api_key="+myKey
             myCoin: "XMR"
+            myIcon: "qrc:///icons/monero.png"
+            myIconBorder:"qrc:///icons/monero_border.png"
 
         }
         CustomRect {
             id:zclId
             myAPI: "http://zclassic.miningpoolhub.com/index.php?page=api&action=getdashboarddata&api_key="+myKey
             myCoin: "ZCL"
+
+
 
         }
         CustomRect {

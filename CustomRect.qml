@@ -11,6 +11,9 @@ Page {
     property string myConfirmedValue: ""
     property string myUnconfirmedValue: ""
     property string myHashrate: ""
+    property string myIcon: ""
+    property string myIconBorder: ""
+
 
     Component.onCompleted: {
         update()
@@ -32,6 +35,21 @@ Page {
             id: frame
             anchors.fill: parent
             anchors.margins: 50
+
+            Image{
+
+                anchors.top: parent.top
+                anchors.left: parent.left
+
+                height: parent.height/4
+                width:height
+
+                source: (myHashrate == "0" )?myIcon:myIconBorder
+
+
+
+            }
+
             Text {
                 text: myCoin
                 anchors.top:parent.top
