@@ -33,5 +33,6 @@ OTHER_FILES +=  WebAPI.js
 
 DISTFILES +=    main.qml\
                 CustomRect.qml\
-                Config.qml
+                Config.qml \
+    Summary.qml
 

@@ -69,6 +69,44 @@ function parse_JSON_Data(jsonData) {
 
 
 
+function get_Method2(m_url) {
+
+    if (m_url != "") {
+        var xhr = new XMLHttpRequest;
+        xhr.open("GET", m_url);
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                var a = JSON.parse(xhr.responseText);
+                parse_JSON_Data2(a);
+            }
+        }
+        xhr.send();
+    } else {
+        console.log("ERROR: No App Key")
+    }
+}
+
+function parse_JSON_Data2(jsonData) {
+
+
+        zecId.myCoinValueDollar = jsonData.ZEC.USD
+
+
+        xmrId.myCoinValueDollar = jsonData.XMR.USD
+
+
+        etnId.myCoinValueDollar = jsonData.ETN.USD
+
+
+        zclId.myCoinValueDollar = jsonData.ZCL.USD
+
+    console.log("compare update done")
+}
+
+
+
+
 
 
 

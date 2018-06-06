@@ -14,7 +14,7 @@ ApplicationWindow {
     property string myKey: ""
     Settings { // TODO C++ better
         id: settings
-        property string apiKEY: "742758491e8a20de3544d78c4120b5313f41cfc1ca45fb5ce7521d512c3d07ec"
+        property string apiKEY: "e549c8c43d3bab52e8779d614ba05278abd0007c8c3e0aeb7783804cb77f9c27"
     }
     Component.onCompleted: {
         myKey = settings.apiKEY
@@ -37,12 +37,15 @@ ApplicationWindow {
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
 
+//        Summary{
+
+//        }
+
         CustomRect {
             id:zecId
             myAPI: "http://zcash.miningpoolhub.com/index.php?page=api&action=getdashboarddata&api_key="+myKey
             myCoin: "ZEC"
             myIcon: "qrc:///icons/zcash.png"
-            myIconBorder:"qrc:///icons/zcash_border.png"
 
 
         }
@@ -51,7 +54,6 @@ ApplicationWindow {
             myAPI: "http://monero.miningpoolhub.com/index.php?page=api&action=getdashboarddata&api_key="+myKey
             myCoin: "XMR"
             myIcon: "qrc:///icons/monero.png"
-            myIconBorder:"qrc:///icons/monero_border.png"
 
         }
         CustomRect {
@@ -82,7 +84,9 @@ ApplicationWindow {
         id: tabBar
         currentIndex: swipeView.currentIndex
 
-
+//        TabButton {
+//            text: qsTr("Summary")
+//        }
         TabButton {
             text: qsTr("ZCash")
         }

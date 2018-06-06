@@ -7,7 +7,6 @@
         <file>Config.qml</file>
         <file>icons/monero.png</file>
         <file>icons/zcash.png</file>
-        <file>icons/monero_border.png</file>
-        <file>icons/zcash_border.png</file>
+        <file>Summary.qml</file>
     </qresource>
 </RCC>

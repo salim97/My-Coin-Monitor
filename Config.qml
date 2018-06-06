@@ -37,6 +37,8 @@ Page {
 
             TextField{
                 id:txId
+                horizontalAlignment: TextField.AlignHCenter
+
                 text:settings.apiKEY
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter

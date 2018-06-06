@@ -1,33 +1,38 @@
 import QtQuick 2.9
+import QtQml 2.0
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.3
 import "qrc:///WebAPI.js" as WebAPI
 
 
 Page {
-    //anchors.fill: parent
     property string myAPI: ""
     property string myCoin: ""
     property string myConfirmedValue: ""
     property string myUnconfirmedValue: ""
     property string myHashrate: ""
+    property string myUpdateValue: ""
     property string myIcon: ""
-    property string myIconBorder: ""
+    property string myCoinValueDollar: ""
+    property string cryptoCompareAPI: "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ZEC,XMR,ETN,ZCL&tsyms=USD"
+
+    function update()
+    {
+        WebAPI.get_Method(myAPI)
+        WebAPI.get_Method2(cryptoCompareAPI)
+
+    }
 
 
     Component.onCompleted: {
         update()
     }
 
-    function update()
-    {
-        WebAPI.get_Method(myAPI)
-    }
+
 
     Rectangle{
         id:rootId
         anchors.fill:parent
-        //anchors.margins: 20
         color: "#151c1d"
 
 
@@ -44,11 +49,12 @@ Page {
                 height: parent.height/4
                 width:height
 
-                source: (myHashrate == "0" )?myIcon:myIconBorder
+                source: myIcon
 
 
 
             }
+
 
             Text {
                 text: myCoin
@@ -60,10 +66,23 @@ Page {
                 font.pointSize: 15
 
             }
+            Text{
+                text:"Last Update : "+myUpdateValue
+                anchors.bottom: txId.top
+                anchors.bottomMargin: 20
+                anchors.horizontalCenter: parent.horizontalCenter
+                color:"#fafafa"
+
+                font {
+                    family: "Halvetica"
+                    italic: false
+                    pointSize: 16
+                }
+            }
 
             Text{
                 id:txId
-                text:"Confirmed : "+myConfirmedValue
+                text:"Confirmed : "+myConfirmedValue+"("+myConfirmedValue*myCoinValueDollar+" $)"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 color:"#fafafa"
@@ -77,7 +96,7 @@ Page {
 
             Text{
                 id:tx2Id
-                text:"Unconfirmed : "+myUnconfirmedValue
+                text:"Unconfirmed : "+myUnconfirmedValue+"("+myUnconfirmedValue*myCoinValueDollar+" $)"
                 anchors.top:txId.bottom
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -90,8 +109,24 @@ Page {
                 }
 
 
-            }
 
+            }
+//            Text{
+//                text:"Total : "+ (myUnconfirmedValue+myUnconfirmedValue)
+//                anchors.top:tx2Id.bottom
+//                anchors.verticalCenter: parent.verticalCenter
+//                anchors.horizontalCenter: parent.horizontalCenter
+//                color:"#fafafa"
+
+//                font {
+//                    family: "Halvetica"
+//                    italic: false
+//                    pointSize: 26
+//                }
+
+
+
+//            }
             Text{
 
                 text:"Hashrate : "+myHashrate+ " h/s"
